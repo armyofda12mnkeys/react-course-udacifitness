@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 //import { Ionicons } from '@expo/vector-icons';
 import AddEntry from './components/AddEntry';
+import History from './components/History';
 import { Button, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet, Text, Slider } from 'react-native';
 import { createStore } from 'redux';
 import {Provider} from 'react-redux';
@@ -17,9 +18,11 @@ export default class App extends React.Component {
   render() {
     return (
     <Provider store={createStore(reducer)}>
-      <View style={styles.container}>
+      <View style={{flex: 1}}>
+        <View style={{height: 20 }} />
+        <History />
         <AddEntry />
-        <Text>App.js State: {this.state.value}</Text>
+
       </View>
     </Provider>
     );
@@ -28,13 +31,12 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: 20,
-    marginLeft: 10,
-    marginRight: 10,
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
+    flex: 1
+  }
+});
+/*
+        <Text>App.js State: {this.state.value}</Text>
+,
   btn: {
     backgroundColor: '#E53224',
     padding: 10,
@@ -47,4 +49,4 @@ const styles = StyleSheet.create({
   btnText: {
     color: '#fff'
   }
-});
+*/

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text } from 'react-native';
 import moment from 'moment';
+import {purple} from '../utils/colors';
 
 export default function DateHeader ({date}) {
   return (
-    <Text>{moment(date).format("MM/DD/YYYY")}</Text>
+    <Text style={{color: purple, fontSize: 25}}>{date}</Text>
   )
 }
