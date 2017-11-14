@@ -11,6 +11,8 @@ import {connect} from 'react-redux';
 import {addEntry} from '../actions';
 import {getDailyReminderValue} from '../utils/helpers';
 import {white, purple} from '../utils/colors';
+import {NavigationActions} from 'react-navigation';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -123,6 +125,7 @@ class AddEntry extends React.Component {
       eat: 0,
     });
     //Navigate to home
+    this.toHome();
     
     //Save to DB
     submitEntry({key, entry})
@@ -140,9 +143,16 @@ class AddEntry extends React.Component {
     
     
     //route to home
+    this.toHome();
     
     //update DB
     removeEntry(key);
+  }
+  toHome = () => {
+    this.props.navigation.dispatch(NavigationActions.back({
+      key: 'AddEntry'
+    }))
+    
   }
   render() {
     const metaInfo = getMetricMetaInfo();

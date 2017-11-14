@@ -39,8 +39,8 @@ class History extends Component {
           <Text style={styles.noDateText}>{today}</Text>
         </View>        
         :
-        <TouchableOpacity onPress={()=> console.log('pressed')}>
-          <Text>{JSON.stringify(metrics)}</Text>
+        <TouchableOpacity onPress={()=> this.props.navigation.navigate('EntryDetail', {entryId: key})}>
+          {/*<Text>{JSON.stringify(metrics)}</Text>*/}
           <MetricCard metrics={metrics} date={formattedDate} />
         </TouchableOpacity>
       }
